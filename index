@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Texto</title>
+</head>
+<body>
+    <button id="copyButton">Contribua</button>
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function() {
+            var texto = "42.331.096/0001-10";
+            var textArea = document.createElement("textarea");
+            textArea.value = texto;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('Texto copiado: ' + texto);
+            } catch (err) {
+                alert('Erro ao copiar texto: ' + err);
+            }
+            document.body.removeChild(textArea);
+        });
+    </script>
+</body>
+</html>
